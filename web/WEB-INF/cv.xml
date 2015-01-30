@@ -14,5 +14,13 @@ and open the template in the editor.
         <old>28</old>
         <email>person@example.com</email>
         <letter>My latter</letter>
-    </person>    
+    </person>
+    <person>
+        <name>Alex</name>
+        <surename>Ghez</surename>
+        <ssn>840101111</ssn>
+        <old>38</old>
+        <email>person@example.com</email>
+        <letter>My latter</letter>
+    </person>     
 </cv>
