@@ -6,8 +6,11 @@ and open the template in the editor.
 -->
 
 
-<employmentrecords>
+<company>
+    <name>Ntt</name>
+    <type>IT</type>
     <orgNumber>1223234</orgNumber>
-    <startdate>2013-09-01</startdate>
-    <enddate>2014-01-02</enddate>
-</employmentrecords>
+    <tel>08947764</tel>
+    <email>ntt@info.se</email>
+    <ceo>Alex</ceo>
+</company>
