@@ -14,9 +14,15 @@ and open the template in the editor.
         <enddate>2014-01-02</enddate>
     </person>
     <person>
+        <name>Saman</name>
+        <orgNumber>1223235</orgNumber>
+        <startdate>2014-09-01</startdate>
+        <enddate>2015-01-02</enddate>
+    </person>    
+    <person>
         <name>Alex</name>
         <orgNumber>1223234</orgNumber>
         <startdate>2013-09-01</startdate>
         <enddate>2014-01-02</enddate>
-    </person>s
+    </person>
 </employmentrecords>
