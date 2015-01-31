@@ -41,6 +41,7 @@ public class TranscriptJaxb {
     private static void makeXml(Person person) throws JAXBException{
         
         result.setPersonName(person.getPersonName());
+        result.setSsn(person.getSsn());
         result.setDegree(person.getDegree());
         
         int total = 0 ;

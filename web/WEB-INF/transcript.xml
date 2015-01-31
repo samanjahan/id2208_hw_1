@@ -10,17 +10,18 @@ and open the template in the editor.
         <universityName>Kth</universityName>
         <person>
             <personName>Saman</personName>
+            <ssn>8609081537</ssn>
             <degree>Datateknik</degree>
             <year>5</year>
             <courses>
                 <course>
                     <name>Mate</name>
-                    <point>10</point>
+                    <point>5</point>
                     <id>id3333</id>
                 </course>
                 <course>
                     <name>Java</name>
-                    <point>20</point>
+                    <point>2</point>
                     <id>id2212</id>
                 </course>     
             </courses>
@@ -30,6 +31,7 @@ and open the template in the editor.
         <universityName>Su</universityName>
         <person>
             <personName>Alex</personName>
+            <ssn>8309081111</ssn>
             <degree>Datateknik</degree>
             <year>5</year>
             <courses>

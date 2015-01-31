@@ -29,6 +29,15 @@ public class Person {
         this.coursesList = coursesList;
     }
    private String personName;
+   private String ssn;
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
    private String degree;
    private int year;
         

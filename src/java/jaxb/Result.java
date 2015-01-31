@@ -19,6 +19,15 @@ public class Result {
     private String personName;
     private String degree;
     private int gpa;
+    private String ssn;
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
    
 
    
