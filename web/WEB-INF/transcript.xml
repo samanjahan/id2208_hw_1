@@ -9,18 +9,18 @@ and open the template in the editor.
     <university>
         <universityName>Kth</universityName>
         <person>
-            <name>Saman</name>
-            <degree>dataTek</degree>
+            <personName>Saman</personName>
+            <degree>Datateknik</degree>
             <year>5</year>
             <courses>
                 <course>
-                    <name>mate</name>
-                    <point>3</point>
+                    <name>Mate</name>
+                    <point>10</point>
                     <id>id3333</id>
                 </course>
                 <course>
-                    <name>java</name>
-                    <point>13</point>
+                    <name>Java</name>
+                    <point>20</point>
                     <id>id2212</id>
                 </course>     
             </courses>
@@ -29,18 +29,18 @@ and open the template in the editor.
     <university>
         <universityName>Su</universityName>
         <person>
-            <name>Alex</name>
-            <degree>dataTek</degree>
+            <personName>Alex</personName>
+            <degree>Datateknik</degree>
             <year>5</year>
             <courses>
                 <course>
-                    <name>mate</name>
+                    <name>Matlab</name>
                     <point>3</point>
                     <id>id3333</id>
                 </course>
                 <course>
-                    <name>java</name>
-                    <point>13</point>
+                    <name>C++</name>
+                    <point>3</point>
                     <id>id2212</id>
                 </course>     
             </courses>
