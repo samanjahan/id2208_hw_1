@@ -7,40 +7,42 @@ and open the template in the editor.
 
 <transcript>
     <university>
-        <universityname>Kth</universityname>
+        <universityName>Kth</universityName>
         <person>
-            <name>saman</name>
-            <degree>dataTek</degree>
+            <personName>Saman</personName>
+            <ssn>8609081537</ssn>
+            <degree>Datateknik</degree>
             <year>5</year>
             <courses>
                 <course>
-                    <name>mate</name>
-                    <point>3</point>
+                    <name>Mate</name>
+                    <point>5</point>
                     <id>id3333</id>
                 </course>
                 <course>
-                    <name>java</name>
-                    <point>13</point>
+                    <name>Java</name>
+                    <point>2</point>
                     <id>id2212</id>
                 </course>     
             </courses>
         </person>
     </university>
     <university>
-        <universityname>Su</universityname>
+        <universityName>Su</universityName>
         <person>
-            <name>Alex</name>
-            <degree>dataTek</degree>
+            <personName>Alex</personName>
+            <ssn>8309081111</ssn>
+            <degree>Datateknik</degree>
             <year>5</year>
             <courses>
                 <course>
-                    <name>mate</name>
+                    <name>Matlab</name>
                     <point>3</point>
                     <id>id3333</id>
                 </course>
                 <course>
-                    <name>java</name>
-                    <point>13</point>
+                    <name>C++</name>
+                    <point>3</point>
                     <id>id2212</id>
                 </course>     
             </courses>

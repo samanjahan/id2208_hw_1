@@ -13,11 +13,19 @@ and open the template in the editor.
             <xs:element name="university" minOccurs = "0" maxOccurs = "unbounded">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="universityname" type="xs:string"/>
+                        <xs:element name="universityName" type="xs:string"/>
                         <xs:element name = "person" minOccurs = "0" maxOccurs = "unbounded">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element name="name" type="xs:string"/>
+                                    <xs:element name="personName" type="xs:string"/>
+                                        <xs:element name="ssn" >
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="10"/>
+                                                    <xs:maxLength value="12"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
                                     <xs:element name="degree" type="xs:string"/>
                                     <xs:element name="year" type="xs:int"/>
                                     <xs:element name = "courses">
@@ -27,7 +35,14 @@ and open the template in the editor.
                                                     <xs:complexType>  
                                                         <xs:sequence>
                                                            <xs:element name = "name" type= "xs:string"/>
-                                                           <xs:element name = "point" type = "xs:int"/>
+                                                           <xs:element name = "point">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:integer">
+                                                                        <xs:minInclusive value="1"/>
+                                                                        <xs:maxInclusive value="5"/>
+                                                                    </xs:restriction>
+                                                                 </xs:simpleType>
+                                                           </xs:element>
                                                            <xs:element name = "id" type = "xs:string"/>
                                                         </xs:sequence>
                                                     </xs:complexType> 

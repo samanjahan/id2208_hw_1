@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<profile>
+        <firstName>Saman</firstName>
+        <surName>Jahan</surName>
+        <university>
+            <universityName>Kth</universityName>
+            <degree>Datatek</degree>
+        </university>
+        <employmentRecords>
+            <companyName>NTT</companyName>
+        </employmentRecords>
+        <letter>OKKK</letter>
+</profile>
