@@ -29,7 +29,7 @@ public class TranscriptJaxb {
         List<University> listUniversitys = tr.getUniversitys();
         Person person = null;
         for(int i = 0; i < listUniversitys.size(); ++i){
-            if(listUniversitys.get(i).getPersonList().get(0).getPersonName().equals("Alex")){
+            if(listUniversitys.get(i).getPersonList().get(0).getSsn().equals("8309081111")){
                 person = listUniversitys.get(i).getPersonList().get(0);
                 result.setUniversityName(listUniversitys.get(i).getUniversityName());
                 makeXml(person);
