@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<employmentrecords>
+    <person>
+        <ssn>8606261111</ssn>
+        <firstName>Saman</firstName>
+        <surName>Jahan</surName>
+        <employments>
+            <employment>
+                <orgNumber>1223234</orgNumber>
+                <startDate>2013-09-01</startDate>
+                <endDate>2014-01-02</endDate>
+            </employment>
+            <employment>
+                <orgNumber>1223235</orgNumber>
+                <startDate>2014-09-01</startDate>
+                <endDate>2015-01-02</endDate>
+            </employment>
+        </employments>
+    </person>
+    <person>
+        <ssn>8310181111</ssn>
+        <firstName>Alex</firstName>
+        <surName>Gezel</surName>
+        <employments>
+            <employment>
+                <orgNumber>1223234</orgNumber>
+                <startDate>2013-09-01</startDate>
+                <endDate>2014-01-02</endDate>
+            </employment>
+        </employments>
+    </person>
+</employmentrecords>

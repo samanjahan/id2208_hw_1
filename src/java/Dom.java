@@ -86,7 +86,7 @@ public class Dom {
             
             Element personElement = docProfile.createElement("person");
             Element nameElement = docProfile.createElement("name");
-            Element surenameElement = docProfile.createElement("surename");
+            Element surNameElement = docProfile.createElement("surName");
             
             String personName = eElement.getElementsByTagName("name").item(0).getTextContent();
             rootElement.appendChild(personElement);
@@ -94,8 +94,8 @@ public class Dom {
             nameElement.appendChild(docProfile.createTextNode(personName));
             personElement.appendChild(nameElement);
             
-            surenameElement.appendChild(docProfile.createTextNode(eElement.getElementsByTagName("surename").item(0).getTextContent()));
-            personElement.appendChild(surenameElement);
+            surNameElement.appendChild(docProfile.createTextNode(eElement.getElementsByTagName("surName").item(0).getTextContent()));
+            personElement.appendChild(surNameElement);
             
             Element universityElement = docProfile.createElement("university");
             personElement.appendChild(universityElement);
@@ -103,7 +103,7 @@ public class Dom {
             for(int j = 0 ; j < nListTranscript.getLength(); ++j){
                 
                 
-                Element universityname = docProfile.createElement("universityname");
+                Element universityName = docProfile.createElement("universityName");
                 Element degreeElement = docProfile.createElement("degree");               
 
 
@@ -114,9 +114,9 @@ public class Dom {
                 String personNamefromtranscript = eElementtrans.getElementsByTagName("name").item(0).getTextContent() ;
                
                 if(personNamefromtranscript.equals(personName)){
-                    universityname.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("universityname").item(0).getTextContent()));
+                    universityName.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("universityName").item(0).getTextContent()));
                     degreeElement.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("degree").item(0).getTextContent()));
-                    universityElement.appendChild(universityname);
+                    universityElement.appendChild(universityName);
                     universityElement.appendChild(degreeElement);
                 }
                 

@@ -6,33 +6,38 @@ and open the template in the editor.
 -->
 
 <xs:schema version="1.0"
-            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            xmlns:MyCv = "urn:MyCv"
-            targetNamespace="urn:MyCv"
-            elementFormDefault="qualified">
-    
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:MyCv = "urn:MyCv"
+           elementFormDefault="qualified">
     <xs:element name="cv">
-         <xs:complexType>
+        <xs:complexType>
             <xs:sequence>
-                <xs:element name = "person" minOccurs = "0" maxOccurs = "unbounded">
-                      <xs:complexType>
-                        <xs:sequence>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="surName" type="xs:string"/>
+                <xs:element name="ssn" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="10"/>
+                            <xs:maxLength value="12"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="gender">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="male|female"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element> 
+                <xs:element name = "email" type="xs:string"/>
+                <xs:element name = "qualifications" minOccurs = "0" maxOccurs = "unbounded">
+                    <xs:complexType>
+                        <xs:sequence minOccurs = "0" maxOccurs = "unbounded">
                             <xs:element name="name" type="xs:string"/>
-                            <xs:element name="surename" type="xs:string"/>
-                            <xs:element name="ssn" type="xs:string"/>
-                            <xs:element name="old" type="xs:int"/>
-                            <xs:element name = "email" type="xs:string"/>
-                            <xs:element name = "qualifications" minOccurs = "0" maxOccurs = "unbounded">
-                                <xs:complexType>
-                                    <xs:sequence minOccurs = "0" maxOccurs = "unbounded">
-                                        <xs:element name="name" type="xs:string"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name = "letter" type="xs:string"/> 
                         </xs:sequence>
-                      </xs:complexType>    
-                </xs:element>                                        
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name = "letter" type="xs:string"/> 
             </xs:sequence>
         </xs:complexType>
     </xs:element>

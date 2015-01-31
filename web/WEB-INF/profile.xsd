@@ -11,34 +11,29 @@ and open the template in the editor.
            xmlns:em="employmentrecords.xsd"
            xmlns:co="company"
            elementFormDefault="qualified">
- <xs:element name="profile">
-         <xs:complexType>
+    <xs:element name="profile">
+        <xs:complexType>
             <xs:sequence>
-                <xs:element name = "person">
+                <xs:element name = "firstName" type="xs:string"/>
+                <xs:element name = "surName" type="xs:string"/>
+                <xs:element name="university">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name = "name" type="xs:string"/>
-                            <xs:element name = "surname" type="xs:string"/>
-                            <xs:element name="university">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="universityname" type="xs:string"/>
-                                        <xs:element name="degree" type="xs:string"/>
-                                    </xs:sequence>
-                                </xs:complexType>    
-                            </xs:element>
-                            <xs:element name="employmentrecords">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="companyname" type="xs:string" minOccurs = "0" maxOccurs = "unbounded"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name = "letter" type="xs:string"/>     
+                            <xs:element name="universityName" type="xs:string"/>
+                            <xs:element name="degree" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>    
+                </xs:element>
+                <xs:element name="employmentRecords">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="companyName" type="xs:string" minOccurs = "0" maxOccurs = "unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
-                </xs:element>        
+                </xs:element>
+                <xs:element name = "letter" type="xs:string"/>     
+
             </xs:sequence>
-         </xs:complexType>
- </xs:element>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

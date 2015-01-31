@@ -7,16 +7,14 @@ and open the template in the editor.
 
 
 <profile>
-    <person>
-        <name>Saman</name>
-        <surname>Jahan</surname>
+        <firstName>Saman</firstName>
+        <surName>Jahan</surName>
         <university>
-            <universityname>Kth</universityname>
+            <universityName>Kth</universityName>
             <degree>Datatek</degree>
         </university>
-        <employmentrecords>
-            <companyname>NTT</companyname>
-        </employmentrecords>
+        <employmentRecords>
+            <companyName>NTT</companyName>
+        </employmentRecords>
         <letter>OKKK</letter>
-    </person>
 </profile>

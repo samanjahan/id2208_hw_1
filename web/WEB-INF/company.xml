@@ -10,9 +10,9 @@ and open the template in the editor.
     <company>
         <companyname>Ntt</companyname>
         <companyinfo>
-            <type>IT</type>
+            <industry>IT</industry>
             <orgNumber>1223234</orgNumber>
-            <tel>08947764</tel>
+            <phoneNumber>08947764</phoneNumber>
             <email>ntt@info.se</email>
             <ceo>Alex</ceo>
         </companyinfo>
@@ -20,9 +20,9 @@ and open the template in the editor.
     <company>
         <companyname>Nokia</companyname>
         <companyinfo>
-            <type>Mobile</type>
+            <industry>Mobile</industry>
             <orgNumber>1223235</orgNumber>
-            <tel>08947764</tel>
+            <phoneNumber>08947764</phoneNumber>
             <email>nokia@info.se</email>
             <ceo>More</ceo>
         </companyinfo>
