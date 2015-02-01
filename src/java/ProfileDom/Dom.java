@@ -1,3 +1,5 @@
+package ProfileDom;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,13 +30,13 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class Dom {
-  static final String W3C_XML_SCHEMA = "cv.xsd";
+  static final String W3C_XML_SCHEMA = "src\\java\\Xml\\cv.xsd";
     public static void main(String[] args) throws ParserConfigurationException, TransformerConfigurationException, TransformerException {
         
-        File cvFile = new File("web/WEB-INF/cv.xml");
-        File companyFile = new File("web/WEB-INF/company.xml");
-        File recordsFile = new File("web/WEB-INF/employmentrecords.xml");
-        File transcriptFile = new File("web/WEB-INF/transcript.xml");
+        File cvFile = new File("src\\java\\Xml\\cv.xml");
+        File companyFile = new File("src\\java\\Xml\\company.xml");
+        File recordsFile = new File("src\\java\\Xml\\employmentrecords.xml");
+        File transcriptFile = new File("src\\java\\Xml\\transcript.xml");
         
         
         DocumentBuilderFactory factoryProfile = DocumentBuilderFactory.newInstance();
@@ -132,7 +134,7 @@ public class Dom {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(docProfile);
-        StreamResult result =  new StreamResult(new File("web/WEB-INF/pr.xml"));
+        StreamResult result =  new StreamResult(new File("src\\java\\Xml\\pr.xml"));
         transformer.transform(source, result);
     }
 }
