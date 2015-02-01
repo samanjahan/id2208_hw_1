@@ -1,4 +1,5 @@
 
+import CompanyDOM.CompanyDOM;
 import CvDOM.CvDOM;
 import DegreeJAXB.TranscriptJaxb;
 import EmploymentSAX.*;
@@ -36,6 +37,7 @@ public class StartProfileBuilder {
         //Send the list of orgNumbers to a company parser.
         //Company parser takes a list as inparameter and creates a
         //companysResult.xml
+        CompanyDOM.createCompanyFile(orgNumbers);
         
         
         //Final step is to connect all the files and create a single Profile.xml

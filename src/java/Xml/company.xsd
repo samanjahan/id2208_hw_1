@@ -14,32 +14,34 @@ and open the template in the editor.
                 <xs:element name = "company" minOccurs = "0" maxOccurs = "unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name = "companyName" type="xs:string"/>
-                            <xs:complexType name = "companyInfo">
-                                <xs:sequence>   
-                                    <xs:element name = "industry" type="xs:string"/>
-                                    <xs:element name="orgNumber" >
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:length value="10"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>                                      
-                                    <xs:element name="phoneNumber" >
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:minLength value="10"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:element>                                                                         
-                                    <xs:element name = "email" type="xs:string"/>
-                                    <xs:element name = "ceo" type="xs:string"/>
-                                </xs:sequence> 
-                            </xs:complexType>    
-                        </xs:sequence> 
-                    </xs:complexType>    
-                </xs:element>                                           
-            </xs:sequence> 
-        </xs:complexType>      
+                            <xs:element name = "orgNumber">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:length value="10"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name = "companyInfo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name = "companyName" type="xs:string"/>
+                                        <xs:element name = "industry" type="xs:string"/>
+                                        <xs:element name="phoneNumber" >
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:length value="10"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name = "email" type="xs:string"/>
+                                        <xs:element name = "ceo" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 </xs:schema>

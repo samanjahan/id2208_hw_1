@@ -5,26 +5,25 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-
 <companydata>
     <company>
-        <companyname>Ntt</companyname>
-        <companyinfo>
+        <orgNumber>1223234590</orgNumber>
+        <companyInfo>
+            <companyName>Ntt</companyName>
             <industry>IT</industry>
-            <orgNumber>1223234</orgNumber>
-            <phoneNumber>08947764</phoneNumber>
+            <phoneNumber>0894776455</phoneNumber>
             <email>ntt@info.se</email>
             <ceo>Alex</ceo>
-        </companyinfo>
+        </companyInfo>
     </company>
     <company>
-        <companyname>Nokia</companyname>
-        <companyinfo>
+        <orgNumber>1223235551</orgNumber>
+        <companyInfo>
+            <companyName>Nokia</companyName>
             <industry>Mobile</industry>
-            <orgNumber>1223235</orgNumber>
-            <phoneNumber>08947764</phoneNumber>
+            <phoneNumber>0894776499</phoneNumber>
             <email>nokia@info.se</email>
             <ceo>More</ceo>
-        </companyinfo>
+        </companyInfo>
     </company>
 </companydata>
