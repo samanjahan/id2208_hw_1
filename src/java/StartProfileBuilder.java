@@ -16,7 +16,7 @@ public class StartProfileBuilder {
     public static void main(String[] args) {
         
         //Get SSN from CV file
-        File cvFile = new File("src\\java\\Xml\\cv.xml");
+        File cvFile = new File("src/java/Xml/cv.xml");
         String ssn = CvDOM.getSSN(cvFile);
         
         //Create a employmentResult.xml file

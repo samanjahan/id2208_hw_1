@@ -11,19 +11,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author syst3m
  */
-@XmlRootElement(name = "cours")
-class Cours {
-   
-   private String name;
-   private int point;
-   private String id;
+@XmlRootElement(name = "course")
+class CoursResult {
+    private String courseName;
+    private int point;
 
-    public String getName() {
-        return name;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public int getPoint() {
@@ -33,12 +31,5 @@ class Cours {
     public void setPoint(int point) {
         this.point = point;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }    
+    
 }

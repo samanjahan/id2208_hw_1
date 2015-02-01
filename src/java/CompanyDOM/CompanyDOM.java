@@ -25,7 +25,7 @@ public class CompanyDOM {
 
         try {
 
-            File file = new File("src\\java\\Xml\\company.xml");
+            File file = new File("src/java/Xml/company.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document inPutDoc = builder.parse(file);
