@@ -1,4 +1,4 @@
-package jaxb;
+package DegreeJAXB;
 
 
 import java.util.List;

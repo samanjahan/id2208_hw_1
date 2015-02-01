@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jaxb;
+package DegreeJAXB;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
