@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employments>
+    <employment>
+        <endDate>2014-01-02</endDate>
+        <orgNumber>1223234590</orgNumber>
+        <startDate>2013-09-01</startDate>
+    </employment>
+    <employment>
+        <endDate>2015-01-02</endDate>
+        <orgNumber>1223235551</orgNumber>
+        <startDate>2014-09-01</startDate>
+    </employment>
+</employments>

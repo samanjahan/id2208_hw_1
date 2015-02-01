@@ -30,7 +30,13 @@ and open the template in the editor.
                                         <xs:element name = "employment" minOccurs = "0" maxOccurs = "unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name = "orgNumber" type="xs:int"/>
+                                                    <xs:element name = "orgNumber">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:length value="10"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
                                                     <xs:element name = "startDate" type = "xs:date"/>
                                                     <xs:element name = "endDate" type = "xs:date"/>
                                                 </xs:sequence>
