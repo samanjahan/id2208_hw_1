@@ -30,13 +30,13 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class Dom {
-  static final String W3C_XML_SCHEMA = "src\\java\\Xml\\cv.xsd";
+  static final String W3C_XML_SCHEMA = "src/java/Xml/cv.xsd";
     public static void main(String[] args) throws ParserConfigurationException, TransformerConfigurationException, TransformerException {
-        
-        File cvFile = new File("src\\java\\Xml\\cv.xml");
-        File companyFile = new File("src\\java\\Xml\\company.xml");
-        File recordsFile = new File("src\\java\\Xml\\employmentrecords.xml");
-        File transcriptFile = new File("src\\java\\Xml\\transcript.xml");
+        //System.out.println("hahahahahahahahah");
+        File cvFile = new File("src/java/Xml/cv.xml");
+        File companyFile = new File("src/java/Xml/company.xml");
+        File recordsFile = new File("src/java/Xml/employmentsresult.xml");
+        File transcriptFile = new File("src/java/Xml/transcriptResult.xml");
         
         
         DocumentBuilderFactory factoryProfile = DocumentBuilderFactory.newInstance();
@@ -62,9 +62,7 @@ public class Dom {
         
         Element rootElement = docProfile.createElement("profile");
         docProfile.appendChild(rootElement);
-        
-        
-        
+           
     
         try {
             docCv = dBuilderCv.parse(cvFile);
@@ -77,27 +75,34 @@ public class Dom {
         }
         
    
-        NodeList nListCv = docCv.getElementsByTagName("person");
-        NodeList nListTranscript = docTranscript.getElementsByTagName("university");
+        NodeList nListCv = docCv.getElementsByTagName("cv");
+        NodeList nListTranscript = docTranscript.getElementsByTagName("result");
         NodeList nListCompany = docCompany.getElementsByTagName("name");
         NodeList nListRecord = docCv.getElementsByTagName("name");
-        
+        System.out.println("size " + nListCv.getLength());
         for(int i = 0 ; i < nListCv.getLength(); ++i ){
-            Node nNode = nListCv.item(i);
-            Element eElement = (Element) nNode;
+            Node nNodeCv = nListCv.item(i);
+            Element eElementCv = (Element) nNodeCv;
             
             Element personElement = docProfile.createElement("person");
+            Element coursesElement = docProfile.createElement("courses");
             Element nameElement = docProfile.createElement("name");
             Element surNameElement = docProfile.createElement("surName");
+            Element ssnElement = docProfile.createElement("ssn");
             
-            String personName = eElement.getElementsByTagName("name").item(0).getTextContent();
+            String personName = eElementCv.getElementsByTagName("firstName").item(0).getTextContent();
+            System.out.println("name " + personName);
             rootElement.appendChild(personElement);
             
             nameElement.appendChild(docProfile.createTextNode(personName));
             personElement.appendChild(nameElement);
+                      
             
-            surNameElement.appendChild(docProfile.createTextNode(eElement.getElementsByTagName("surName").item(0).getTextContent()));
+            surNameElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("surName").item(0).getTextContent()));
             personElement.appendChild(surNameElement);
+            
+            ssnElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("ssn").item(0).getTextContent()));
+            personElement.appendChild(ssnElement);
             
             Element universityElement = docProfile.createElement("university");
             personElement.appendChild(universityElement);
@@ -105,22 +110,36 @@ public class Dom {
             for(int j = 0 ; j < nListTranscript.getLength(); ++j){
                 
                 
-                Element universityName = docProfile.createElement("universityName");
-                Element degreeElement = docProfile.createElement("degree");               
+                Element universityNameElement = docProfile.createElement("universityName");
+                Element degreeElement = docProfile.createElement("degree");
+                
 
 
-                System.out.println("j" + j);
+               
                 Node nNodeTrans = nListTranscript.item(j);
                 
                 Element eElementtrans = (Element) nNodeTrans;
-                String personNamefromtranscript = eElementtrans.getElementsByTagName("name").item(0).getTextContent() ;
-               
-                if(personNamefromtranscript.equals(personName)){
-                    universityName.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("universityName").item(0).getTextContent()));
-                    degreeElement.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("degree").item(0).getTextContent()));
-                    universityElement.appendChild(universityName);
-                    universityElement.appendChild(degreeElement);
+                universityNameElement.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("universityName").item(0).getTextContent()));
+                degreeElement.appendChild(docProfile.createTextNode(eElementtrans.getElementsByTagName("degree").item(0).getTextContent()));
+                for(int k = 0 ; k < eElementtrans.getElementsByTagName("course").getLength(); ++k){
+                    
+                    Element courseNameElement = docProfile.createElement("courseName"); 
+                    Element pointElement = docProfile.createElement("point");
+                    
+                    Node nNodeCours = eElementtrans.getElementsByTagName("course").item(k);
+                    Element eElementCourse = (Element) nNodeCours;
+                    
+                    courseNameElement.appendChild(docProfile.createTextNode(eElementCourse.getElementsByTagName("courseName").item(0).getTextContent()));
+                    pointElement.appendChild(docProfile.createTextNode(eElementCourse.getElementsByTagName("point").item(0).getTextContent()));
+                    
+                    coursesElement.appendChild(courseNameElement);
+                    coursesElement.appendChild(pointElement);
                 }
+
+                universityElement.appendChild(coursesElement);
+                universityElement.appendChild(universityNameElement);
+                universityElement.appendChild(degreeElement);
+             
                 
                 
                 
@@ -134,7 +153,7 @@ public class Dom {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(docProfile);
-        StreamResult result =  new StreamResult(new File("src\\java\\Xml\\pr.xml"));
+        StreamResult result =  new StreamResult(new File("src/java/Xml/pr.xml"));
         transformer.transform(source, result);
     }
 }

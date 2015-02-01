@@ -17,14 +17,19 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.Marshaller;
+import java.util.ArrayList;
 
 public class TranscriptJaxb {
+    
     private static Result result = new Result();
     
+    public static void main(String[] args) {
+        parseXML("8606261111");
+    }
     public static void parseXML(String ssn){       
         
         try {
-        File file = new File("src\\java\\Xml\\transcript.xml");
+        File file = new File("src/java/Xml/transcript.xml");
         JAXBContext jaxbContext = JAXBContext.newInstance(Transcript.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Transcript tr = (Transcript) jaxbUnmarshaller.unmarshal(file);
@@ -38,30 +43,35 @@ public class TranscriptJaxb {
                 break;
             }
         }
+        
         } catch(Exception e) {
             e.printStackTrace(System.err);
         }
+                       
     }
     
     private static void makeXml(Person person) throws JAXBException{
-        
-        result.setPersonName(person.getPersonName());
-        result.setSsn(person.getSsn());
+               
         result.setDegree(person.getDegree());
-        
-        int total = 0 ;
-        int size = person.getCoursesList().get(0).getCoursList().size();
-       
-        for(int i = 0 ; i < size; ++i){
-            total = total + person.getCoursesList().get(0).getCoursList().get(i).getPoint();
+        result.setSsn(person.getSsn());
+        List<CoursResult> coursResultList = new ArrayList<CoursResult>();
+        for(int i = 0 ; i < person.getCoursesList().get(0).getCoursList().size(); ++i){
+            CoursResult coursResult = new CoursResult(); 
+            coursResult.setCourseName(person.getCoursesList().get(0).getCoursList().get(i).getName());
+            coursResult.setPoint(person.getCoursesList().get(0).getCoursList().get(i).getPoint());
+            System.out.println("course " + person.getCoursesList().get(0).getCoursList().get(i).getName());
+            coursResultList.add(coursResult);         
         }
-        result.setGpa(total / size);
+        
+        result.setCoursList(coursResultList);
+        
+        
         
         JAXBContext jaxbContextResult = JAXBContext.newInstance(Result.class);
         Marshaller jaxbMarshaller = jaxbContextResult.createMarshaller();
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        jaxbMarshaller.marshal(result, new File("src\\java\\Xml\\transcriptResult.xml"));
-        jaxbMarshaller.marshal(result, System.out);
+        jaxbMarshaller.marshal(result, new File("src/java/Xml/transcriptResult.xml"));
+       // jaxbMarshaller.marshal(result, System.out);
         
     }
 }

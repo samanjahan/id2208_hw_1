@@ -32,7 +32,7 @@ public class EmploymentSAXParser {
         this.ssn = ssn;
         parse();
         //print();
-        createFile("src\\java\\Xml\\employmentsResult.xml");        
+        createFile("src/java/Xml/employmentsResult.xml");        
     }
     
         
@@ -47,7 +47,7 @@ public class EmploymentSAXParser {
             SAXParserFactory saxpf = SAXParserFactory.newInstance();
             SAXParser saxp = saxpf.newSAXParser();
 
-            saxp.parse("src\\java\\Xml\\employmentrecords.xml", new MyParser(ssn));
+            saxp.parse("src/java/Xml/employmentrecords.xml", new MyParser(ssn));
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             ex.printStackTrace();

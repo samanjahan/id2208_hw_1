@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<result>
+    <course>
+        <courseName>Mate</courseName>
+        <point>5</point>
+    </course>
+    <course>
+        <courseName>Java</courseName>
+        <point>2</point>
+    </course>
+    <degree>Datateknik</degree>
+    <ssn>8606261111</ssn>
+    <universityName>Kth</universityName>
+</result>

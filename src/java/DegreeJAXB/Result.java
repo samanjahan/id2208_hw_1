@@ -5,6 +5,7 @@
  */
 package DegreeJAXB;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -16,10 +17,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Result {
     
     private String universityName;
-    private String personName;
     private String degree;
-    private int gpa;
     private String ssn;
+    private List<CoursResult> coursList;
+
+    @XmlElement(name = "course")
+    public List<CoursResult> getCoursList() {
+        return coursList;
+    }
+
+    public void setCoursList(List<CoursResult> coursList) {
+        this.coursList = coursList;
+    }
 
     public String getSsn() {
         return ssn;
@@ -28,9 +37,6 @@ public class Result {
     public void setSsn(String ssn) {
         this.ssn = ssn;
     }
-   
-
-   
     
     public String getUniversityName() {
         return universityName;
@@ -42,32 +48,13 @@ public class Result {
     }
     
     
-    public String getPersonName() {
-        return personName;
-    }
-
-    @XmlElement
-    public void setPersonName(String personName) {
-        this.personName = personName;
-    }
-    
    
     public String getDegree() {
         return degree;
     }
 
-     @XmlElement
+    @XmlElement
     public void setDegree(String degree) {
         this.degree = degree;
-    }
-    
-    
-    public int getGpa() {
-        return gpa;
-    }
-
-    @XmlElement
-    public void setGpa(int gpa) {
-        this.gpa = gpa;
     }
 }
