@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<companies>
+<companyInfo>
+            <companyName>Ntt</companyName>
+            <industry>IT</industry>
+            <phoneNumber>0894776455</phoneNumber>
+            <email>ntt@info.se</email>
+            <ceo>Alex</ceo>
+        </companyInfo>
+<companyInfo>
+            <companyName>Nokia</companyName>
+            <industry>Mobile</industry>
+            <phoneNumber>0894776499</phoneNumber>
+            <email>nokia@info.se</email>
+            <ceo>More</ceo>
+</companyInfo>
+</companies>

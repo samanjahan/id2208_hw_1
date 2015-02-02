@@ -59,12 +59,11 @@ public class CompanyDOM {
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(outputDocument);
-            StreamResult result = new StreamResult(new File("src\\java\\Xml\\companiesResult.xml"));
+            StreamResult result = new StreamResult(new File("src/java/Xml/companiesResult.xml"));
             transformer.transform(source, result);
 
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
-
     }
 }

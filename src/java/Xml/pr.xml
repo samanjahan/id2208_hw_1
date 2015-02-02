@@ -17,5 +17,15 @@
 <universityName>Kth</universityName>
 <degree>Datateknik</degree>
 </university>
+<experience>
+<companyInfo>
+<companyName>Ntt</companyName>
+<industry>IT</industry>
+</companyInfo>
+<companyInfo>
+<companyName>Nokia</companyName>
+<industry>Mobile</industry>
+</companyInfo>
+</experience>
 </person>
 </profile>
