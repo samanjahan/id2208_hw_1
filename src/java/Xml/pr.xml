@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <profile>
-    <person>
-        <name>Saman</name>
-        <surName>Jahan</surName>
-        <ssn>8606261111</ssn>
-        <university>
-            <courses>
-                <courseName>Mate</courseName>
-                <point>5</point>
-                <courseName>Java</courseName>
-                <point>2</point>
-            </courses>
-            <universityName>Kth</universityName>
-            <degree>Datateknik</degree>
-        </university>
-    </person>
+<person>
+<name>Saman</name>
+<surName>Jahan</surName>
+<ssn>8606261111</ssn>
+<gender>male</gender>
+<email>person@example.com</email>
+<letter>My latter</letter>
+<university>
+<courses>
+<courseName>Mate</courseName>
+<point>5</point>
+<courseName>Java</courseName>
+<point>2</point>
+</courses>
+<universityName>Kth</universityName>
+<degree>Datateknik</degree>
+</university>
+</person>
 </profile>

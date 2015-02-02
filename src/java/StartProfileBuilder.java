@@ -3,6 +3,7 @@ import CompanyDOM.CompanyDOM;
 import CvDOM.CvDOM;
 import DegreeJAXB.TranscriptJaxb;
 import EmploymentSAX.*;
+import ProfileDom.Dom;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public class StartProfileBuilder {
         
         //Final step is to connect all the files and create a single Profile.xml
         //file
+        Dom.createProfile();
     }
     
 }
