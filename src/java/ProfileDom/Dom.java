@@ -37,9 +37,8 @@ public class Dom {
 
         try {
 
-            //System.out.println("hahahahahahahahah");
             File cvFile = new File("src/java/Xml/cv.xml");
-            File companyFile = new File("src/java/Xml/company.xml");
+            File companyFile = new File("src/java/Xml/companiesResult.xml");
             File recordsFile = new File("src/java/Xml/employmentsresult.xml");
             File transcriptFile = new File("src/java/Xml/transcriptResult.xml");
 
@@ -77,7 +76,7 @@ public class Dom {
 
             NodeList nListCv = docCv.getElementsByTagName("cv");
             NodeList nListTranscript = docTranscript.getElementsByTagName("result");
-            NodeList nListCompany = docCompany.getElementsByTagName("name");
+            NodeList nListCompany = docCompany.getElementsByTagName("companyInfo");
             NodeList nListRecord = docCv.getElementsByTagName("name");
             System.out.println("size " + nListCv.getLength());
             for (int i = 0; i < nListCv.getLength(); ++i) {
@@ -85,6 +84,7 @@ public class Dom {
                 Element eElementCv = (Element) nNodeCv;
 
                 Element personElement = docProfile.createElement("person");
+                Element experienceElement = docProfile.createElement("experience");             
                 Element coursesElement = docProfile.createElement("courses");
                 Element nameElement = docProfile.createElement("name");
                 Element surNameElement = docProfile.createElement("surName");
@@ -112,11 +112,16 @@ public class Dom {
                 emailElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("email").item(0).getTextContent()));
                 personElement.appendChild(emailElement);
                 
+                
+                
                 letterElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("letter").item(0).getTextContent()));
                 personElement.appendChild(letterElement);
 
                 Element universityElement = docProfile.createElement("university");
                 personElement.appendChild(universityElement);
+                
+                personElement.appendChild(experienceElement);
+
 
                 for (int j = 0; j < nListTranscript.getLength(); ++j) {
 
@@ -149,7 +154,22 @@ public class Dom {
 
                     Element degree = docProfile.createElement("degree");
 
+                }              
+               
+                for(int v = 0 ; v < nListCompany.getLength(); ++v){
+                    Element companyInfoElement = docProfile.createElement("companyInfo");
+                    Element companyNameElement = docProfile.createElement("companyName");
+                    Element industryElement = docProfile.createElement("industry");                    
+                    Node nNodeCompanies = nListCompany.item(v);
+                    Element eElementCompany = (Element) nNodeCompanies;
+                    companyNameElement.appendChild(docProfile.createTextNode(eElementCompany.getElementsByTagName("companyName").item(0).getTextContent()));
+                    industryElement.appendChild(docProfile.createTextNode(eElementCompany.getElementsByTagName("industry").item(0).getTextContent()));
+                    companyInfoElement.appendChild(companyNameElement);
+                    companyInfoElement.appendChild(industryElement);
+                    experienceElement.appendChild(companyInfoElement);
                 }
+                
+                
             }
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
