@@ -21,10 +21,14 @@
 <companyInfo>
 <companyName>Ntt</companyName>
 <industry>IT</industry>
+<startDate>2013-09-01</startDate>
+<endDate>2014-01-02</endDate>
 </companyInfo>
 <companyInfo>
 <companyName>Nokia</companyName>
 <industry>Mobile</industry>
+<startDate>2014-09-01</startDate>
+<endDate>2015-01-02</endDate>
 </companyInfo>
 </experience>
 </person>
