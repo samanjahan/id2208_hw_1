@@ -14,25 +14,71 @@ and open the template in the editor.
     <xs:element name="profile">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name = "firstName" type="xs:string"/>
-                <xs:element name = "surName" type="xs:string"/>
-                <xs:element name="university">
+                <xs:element name = "person">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="universityName" type="xs:string"/>
-                            <xs:element name="degree" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:complexType>    
-                </xs:element>
-                <xs:element name="employmentRecords">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="companyName" type="xs:string" minOccurs = "0" maxOccurs = "unbounded"/>
+                            <xs:element name = "name" type="xs:string"/>
+                            <xs:element name = "surName" type="xs:string"/>
+                            <xs:element name = "ssn">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="10"/>
+                                        <xs:maxLength value="12"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="gender">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="male|female"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                            </xs:element>
+                            <xs:element name = "email" type="xs:string"/>
+                            <xs:element name = "letter" type="xs:string"/>
+                            <xs:element name = "university" minOccurs = "0" maxOccurs = "unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name = "courses">
+                                            <xs:complexType>
+                                                <xs:sequence minOccurs = "0" maxOccurs = "unbounded">
+                                                    <xs:element name = "courseName" type="xs:string"/>
+                                                    <xs:element name = "point">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:integer">
+                                                                <xs:minInclusive value="1"/>
+                                                                <xs:maxInclusive value="5"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>    
+                                        </xs:element>
+                                        <xs:element name = "universityName" type="xs:string"/>
+                                        <xs:element name = "degree" type="xs:string"/>                                        
+                                    </xs:sequence>
+                                </xs:complexType>   
+                            </xs:element>
+                            <xs:element name = "experience">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs = "0" maxOccurs = "unbounded">
+                                        <xs:element name = "companyInfo">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "companyName" type="xs:string"/>
+                                                    <xs:element name = "industry" type="xs:string"/>
+                                                    <xs:element name = "startDate" type="xs:date"/>
+                                                    <xs:element name = "endDate" type="xs:date"/>
+                                                </xs:sequence> 
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name = "letter" type="xs:string"/>     
             </xs:sequence>
-        </xs:complexType>
+        </xs:complexType>               
     </xs:element>
 </xs:schema>

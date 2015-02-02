@@ -9,6 +9,9 @@ package ProfileDom;
  *
  * @author syst3m
  */
+import javax.xml.XMLConstants;
+
+import javax.xml.transform.*;
 import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -25,11 +28,18 @@ import org.w3c.dom.Element;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.validation.SchemaFactory;
+
+
+
+
 
 public class Dom {
+    
+    static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema-instance";
+    static final String JAXP_SCHEMA_LANGUAGE = "profile.xsd";
 
-    static final String W3C_XML_SCHEMA = "src/java/Xml/cv.xsd";
-
+    
     public static void createProfile() {
 
         try {
@@ -57,6 +67,7 @@ public class Dom {
             Document docRecord = null;
             Document docTranscript = null;
             Document docProfile = docBuilderProfile.newDocument();
+            
 
             Element rootElement = docProfile.createElement("profile");
             docProfile.appendChild(rootElement);
@@ -187,10 +198,13 @@ public class Dom {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            
             DOMSource source = new DOMSource(docProfile);
             StreamResult result = new StreamResult(new File("src/java/Xml/pr.xml"));
             transformer.transform(source, result);
-
+            
+            SchemaFactory actory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+         //  Source schemaFile = new StreamSource(new File("mySchema.xsd"));
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
