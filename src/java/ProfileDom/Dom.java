@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import org.xml.sax.SAXException;
 import org.w3c.dom.NodeList;
@@ -24,8 +23,6 @@ import org.w3c.dom.Node;
 import javax.xml.transform.TransformerFactory;
 import org.w3c.dom.Element;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -39,7 +36,7 @@ public class Dom {
 
             File cvFile = new File("src/java/Xml/cv.xml");
             File companyFile = new File("src/java/Xml/companiesResult.xml");
-            File recordsFile = new File("src/java/Xml/employmentsresult.xml");
+            File recordsFile = new File("src/java/Xml/employmentsResult.xml");
             File transcriptFile = new File("src/java/Xml/transcriptResult.xml");
 
             DocumentBuilderFactory factoryProfile = DocumentBuilderFactory.newInstance();
@@ -68,6 +65,7 @@ public class Dom {
                 docCv = dBuilderCv.parse(cvFile);
                 docCompany = dBuilderCv.parse(companyFile);
                 docTranscript = dBuilderTranscript.parse(transcriptFile);
+                docRecord = dBuilderRecord.parse(recordsFile);
             } catch (SAXException ex) {
                 Logger.getLogger(Dom.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -77,7 +75,8 @@ public class Dom {
             NodeList nListCv = docCv.getElementsByTagName("cv");
             NodeList nListTranscript = docTranscript.getElementsByTagName("result");
             NodeList nListCompany = docCompany.getElementsByTagName("companyInfo");
-            NodeList nListRecord = docCv.getElementsByTagName("name");
+            NodeList nListRecord = docRecord.getElementsByTagName("employment");
+            
             System.out.println("size " + nListCv.getLength());
             for (int i = 0; i < nListCv.getLength(); ++i) {
                 Node nNodeCv = nListCv.item(i);
@@ -94,7 +93,6 @@ public class Dom {
                 Element letterElement = docProfile.createElement("letter");
 
                 String personName = eElementCv.getElementsByTagName("firstName").item(0).getTextContent();
-                System.out.println("name " + personName);
                 rootElement.appendChild(personElement);
 
                 nameElement.appendChild(docProfile.createTextNode(personName));
@@ -159,13 +157,27 @@ public class Dom {
                 for(int v = 0 ; v < nListCompany.getLength(); ++v){
                     Element companyInfoElement = docProfile.createElement("companyInfo");
                     Element companyNameElement = docProfile.createElement("companyName");
-                    Element industryElement = docProfile.createElement("industry");                    
+                    Element industryElement = docProfile.createElement("industry");
+                    Element endDateElement = docProfile.createElement("endDate");
+                    Element startDateElement = docProfile.createElement("startDate");                    
+
+                    Node nNodeRecords = nListRecord.item(v);
+                    Element eElementRecords = (Element) nNodeRecords;
+                    
                     Node nNodeCompanies = nListCompany.item(v);
                     Element eElementCompany = (Element) nNodeCompanies;
+                    
                     companyNameElement.appendChild(docProfile.createTextNode(eElementCompany.getElementsByTagName("companyName").item(0).getTextContent()));
                     industryElement.appendChild(docProfile.createTextNode(eElementCompany.getElementsByTagName("industry").item(0).getTextContent()));
+                   
+                    startDateElement.appendChild(docProfile.createTextNode(eElementRecords.getElementsByTagName("startDate").item(0).getTextContent()));
+                    endDateElement.appendChild(docProfile.createTextNode(eElementRecords.getElementsByTagName("endDate").item(0).getTextContent()));
                     companyInfoElement.appendChild(companyNameElement);
                     companyInfoElement.appendChild(industryElement);
+                    
+                    companyInfoElement.appendChild(startDateElement);
+                    companyInfoElement.appendChild(endDateElement);
+
                     experienceElement.appendChild(companyInfoElement);
                 }
                 
