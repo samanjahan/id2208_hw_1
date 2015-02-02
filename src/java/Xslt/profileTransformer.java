@@ -11,13 +11,13 @@ import javax.xml.transform.stream.StreamSource;
 
 public class profileTransformer {
     
-    public static void main(String[] args) {
+    public static void createProfileHTML() {
 		try {
 			TransformerFactory  tFactory =  TransformerFactory.newInstance();
 			Source xslSource = new StreamSource( "src/java/Xslt/profile.xsl" );
 			Transformer transformer = tFactory.newTransformer( xslSource );
                         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.transform( new StreamSource( "src/java/Xml/pr.xml" ),new StreamResult( new FileOutputStream( "src/java/Xslt/test_output.html" )));
+			transformer.transform( new StreamSource( "src/java/Xml/pr.xml" ),new StreamResult( new FileOutputStream( "src/java/Xslt/profile.html" )));
 
 		}catch(Exception ex) {
 			 ex.printStackTrace();

@@ -5,29 +5,18 @@
         <html>
             <body>
                 <h2>Profile</h2>
-                <xsl:element name="ns:profile">        
-                    <xsl:element name = "ns:name">
-                        
                         <p>
                            Name: <xsl:value-of select = "/profile/person/name"/>
                         </p>
-                    </xsl:element>
-                    <xsl:element name = "ns:surName">
                         <p>
                         SurName: <xsl:value-of select = "/profile/person/surName"/>
                         </p>
-                    </xsl:element>
-                       <xsl:element name = "ns:gender">
                         <p>
                         Gender:   <xsl:value-of select = "/profile/person/gender"/>
                         </p>
-                    </xsl:element>
-                    <xsl:element name = "ns:ssn">
                         <p>
                         SSN:   <xsl:value-of select = "/profile/person/ssn"/>
                         </p>
-                    </xsl:element>                
-                </xsl:element>
                 <table border="1">
                     <tr bgcolor="#9acd32">
                         <th>UniversityName</th>

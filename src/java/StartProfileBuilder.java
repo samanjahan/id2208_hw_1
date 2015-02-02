@@ -4,6 +4,7 @@ import CvDOM.CvDOM;
 import DegreeJAXB.TranscriptJaxb;
 import EmploymentSAX.*;
 import ProfileDom.Dom;
+import Xslt.profileTransformer;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -44,6 +45,9 @@ public class StartProfileBuilder {
         //Final step is to connect all the files and create a single Profile.xml
         //file
         Dom.createProfile();
+        
+        //Create the HTML file
+        profileTransformer.createProfileHTML();
     }
     
 }
