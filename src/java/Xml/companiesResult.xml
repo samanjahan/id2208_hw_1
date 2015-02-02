@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE companydata>
-<companydata
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="company.xsd">
-    <company>
-        <orgNumber>1223234590</orgNumber>
-        <companyInfo>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<companies>
+<companyInfo>
             <companyName>Ntt</companyName>
             <industry>IT</industry>
             <phoneNumber>0894776455</phoneNumber>
             <email>ntt@info.se</email>
             <ceo>Alex</ceo>
         </companyInfo>
-    </company>
-    <company>
-        <orgNumber>1223235551</orgNumber>
-        <companyInfo>
+<companyInfo>
             <companyName>Nokia</companyName>
             <industry>Mobile</industry>
             <phoneNumber>0894776499</phoneNumber>
             <email>nokia@info.se</email>
             <ceo>More</ceo>
         </companyInfo>
-    </company>
-</companydata>
+</companies>

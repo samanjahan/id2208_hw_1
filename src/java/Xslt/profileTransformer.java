@@ -17,7 +17,7 @@ public class profileTransformer {
 			Source xslSource = new StreamSource( "src/java/Xslt/profile.xsl" );
 			Transformer transformer = tFactory.newTransformer( xslSource );
                         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.transform( new StreamSource( "src/java/Xml/pr.xml" ),new StreamResult( new FileOutputStream( "src/java/Xslt/test_output.xml" )));
+			transformer.transform( new StreamSource( "src/java/Xml/pr.xml" ),new StreamResult( new FileOutputStream( "src/java/Xslt/finalProfile.xml" )));
 
 		}catch(Exception ex) {
 			 ex.printStackTrace();

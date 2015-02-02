@@ -1,14 +1,5 @@
 package ProfileDom;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author syst3m
- */
 import org.w3c.dom.Document;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -16,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import org.xml.sax.SAXException;
 import org.w3c.dom.NodeList;
@@ -24,10 +14,10 @@ import org.w3c.dom.Node;
 import javax.xml.transform.TransformerFactory;
 import org.w3c.dom.Element;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXParseException;
 
 public class Dom {
 
@@ -44,17 +34,23 @@ public class Dom {
             File transcriptFile = new File("src/java/Xml/transcriptResult.xml");
 
             DocumentBuilderFactory factoryProfile = DocumentBuilderFactory.newInstance();
-
             DocumentBuilderFactory factoryCv = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factoryCompany = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factoryRecord = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factoryTranscript = DocumentBuilderFactory.newInstance();
+
+            factoryCv.setValidating(true);
+            factoryCv.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage", "http://www.w3.org/2001/XMLSchema");
+            factoryCv.setNamespaceAware(true);
+            factoryCv.setIgnoringElementContentWhitespace(true);
 
             DocumentBuilder dBuilderCv = factoryCv.newDocumentBuilder();
             DocumentBuilder dBuilderCompany = factoryCompany.newDocumentBuilder();
             DocumentBuilder dBuilderRecord = factoryRecord.newDocumentBuilder();
             DocumentBuilder dBuilderTranscript = factoryTranscript.newDocumentBuilder();
             DocumentBuilder docBuilderProfile = factoryProfile.newDocumentBuilder();
+            
+            dBuilderCv.setErrorHandler(new SimpleErrorHandler());
 
             Document docCv = null;
             Document docCompany = null;
@@ -111,7 +107,7 @@ public class Dom {
 
                 emailElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("email").item(0).getTextContent()));
                 personElement.appendChild(emailElement);
-                
+
                 letterElement.appendChild(docProfile.createTextNode(eElementCv.getElementsByTagName("letter").item(0).getTextContent()));
                 personElement.appendChild(letterElement);
 
@@ -163,5 +159,21 @@ public class Dom {
             e.printStackTrace(System.err);
         }
 
+    }
+
+}
+
+class SimpleErrorHandler implements ErrorHandler {
+
+    public void warning(SAXParseException e) throws SAXException {
+        System.out.println(e.getMessage());
+    }
+
+    public void error(SAXParseException e) throws SAXException {
+        System.out.println(e.getMessage());
+    }
+
+    public void fatalError(SAXParseException e) throws SAXException {
+        System.out.println(e.getMessage());
     }
 }
