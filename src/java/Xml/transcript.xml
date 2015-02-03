@@ -17,6 +17,11 @@
                     <id>id3333</id>
                 </course>
                 <course>
+                    <name>Algebra</name>
+                    <point>2</point>
+                    <id>id3334</id>
+                </course>
+                <course>
                     <name>Java</name>
                     <point>2</point>
                     <id>id2212</id>

@@ -48,6 +48,10 @@ public class StartProfileBuilder {
         
         //Create the HTML file
         profileTransformer.createProfileHTML();
+        
+        new File("src/java/Xml/companiesResult.xml").delete();
+       // new File("src/java/Xml/transcriptResult.xml").delete();
+        new File("src/java/Xml/employmentsResult.xml").delete();
     }
     
 }

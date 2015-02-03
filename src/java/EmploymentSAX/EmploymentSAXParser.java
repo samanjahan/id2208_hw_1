@@ -31,7 +31,6 @@ public class EmploymentSAXParser {
     public EmploymentSAXParser(String ssn) {
         this.ssn = ssn;
         parse();
-        //print();
         createFile("src/java/Xml/employmentsResult.xml");        
     }
     
@@ -77,21 +76,16 @@ public class EmploymentSAXParser {
             if (foundSsn == true) {
                 if (record == true) {
                     if (qName.equals("employment")) {
-                        //System.out.println("<employment>");
                         employment = new Employment();
                     } else if (qName.equals("orgNumber")) {
-                        //System.out.println("<orgNumber>");
                         getOrg = true;
                     } else if (qName.equals("startDate")) {
-                        //System.out.println("<startDate>");
                         getStart = true;
                     } else if (qName.equals("endDate")) {
-                        //System.out.println("<endDate>");
                         getEnd = true;
                     }
                 } else if (qName.equals("employments")) {
                     record = true;
-                    //System.out.println("<employments>");
                 }
             }
         }
@@ -104,13 +98,10 @@ public class EmploymentSAXParser {
             }
             if (foundSsn == true && record == true) {
                 if (getOrg == true) {
-                    //System.out.println(string);
                     employment.setOrgNumber(string);
                 } else if (getStart == true) {
-                    //System.out.println(string);
                     employment.setStartDate(string);
                 } else if (getEnd == true) {
-                    //System.out.println(string);
                     employment.setEndDate(string);
                 }
             }
@@ -126,33 +117,26 @@ public class EmploymentSAXParser {
                 
                 employmentsElement = new Employments();
                 employmentsElement.setEmployments(employments);
-                //System.out.println("</employments>");
             }
             if (foundSsn == true && record == true) {
                 if (qName.equals("employment")) {
                     employments.add(employment);
-                    //System.out.println("</employment>");
                 } else if (qName.equals("orgNumber")) {
                     getOrg = false;
-                    //System.out.println("</orgNumber>");
                 } else if (qName.equals("startDate")) {
                     getStart = false;
-                    //System.out.println("</startDate>");
                 } else if (qName.equals("endDate")) {
                     getEnd = false;
-                    //System.out.println("</endDate>");
                 }
             }
         }
 
         @Override
         public void startDocument() throws SAXException {
-            //System.out.println("<startDocument>");
         }
 
         @Override
         public void endDocument() throws SAXException {
-            //System.out.println("<endDocument>");
         }
     }
 

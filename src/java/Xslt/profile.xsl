@@ -1,6 +1,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0"
-                xmlns:ns="src/java/Xml/pr.xml">
+                xmlns:ns="src/java/Xml/finalProfile.xml">
     <xsl:template match="/">
         <html>
             <body>
@@ -51,7 +51,10 @@
                         </tr>
                     </xsl:for-each>
                 </table>
-                
+                <h2>Letter</h2>
+                <p>
+                    <xsl:value-of select = "/profile/person/letter"/>
+                </p>
             </body>
         </html>         
     </xsl:template>

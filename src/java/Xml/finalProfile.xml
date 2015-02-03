@@ -6,11 +6,13 @@
 <ssn>8606261111</ssn>
 <gender>male</gender>
 <email>person@example.com</email>
-<letter>My latter</letter>
+<letter>My letter</letter>
 <university>
 <courses>
 <courseName>Mate</courseName>
 <point>5</point>
+<courseName>Algebra</courseName>
+<point>2</point>
 <courseName>Java</courseName>
 <point>2</point>
 </courses>

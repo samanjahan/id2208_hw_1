@@ -21,6 +21,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.SchemaFactory;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
+import org.xml.sax.InputSource;
 
 
 public class Dom {
@@ -35,7 +36,7 @@ public class Dom {
 
             File cvFile = new File("src/java/Xml/cv.xml");
             File companyFile = new File("src/java/Xml/company.xml");
-            File recordsFile = new File("src/java/Xml/employmentsresult.xml");
+            File recordsFile = new File("src/java/Xml/employmentsResult.xml");
             File transcriptFile = new File("src/java/Xml/transcriptResult.xml");
 
             DocumentBuilderFactory factoryProfile = DocumentBuilderFactory.newInstance();
@@ -83,7 +84,6 @@ public class Dom {
             NodeList nListCompany = docCompany.getElementsByTagName("companyInfo");
             NodeList nListRecord = docRecord.getElementsByTagName("employment");
             
-            System.out.println("size " + nListCv.getLength());
             for (int i = 0; i < nListCv.getLength(); ++i) {
                 Node nNodeCv = nListCv.item(i);
                 Element eElementCv = (Element) nNodeCv;
@@ -195,11 +195,10 @@ public class Dom {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             
             DOMSource source = new DOMSource(docProfile);
-            StreamResult result = new StreamResult(new File("src/java/Xml/pr.xml"));
-            transformer.transform(source, result);
+            StreamResult result = new StreamResult(new File("src/java/Xml/finalProfile.xml"));
+            transformer.transform(source, result);           
             
-            SchemaFactory actory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-         //  Source schemaFile = new StreamSource(new File("mySchema.xsd"));
+
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
