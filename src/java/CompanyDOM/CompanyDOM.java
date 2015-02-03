@@ -13,14 +13,6 @@ import org.w3c.dom.*;
 
 public class CompanyDOM {
 
-/*
-    public static void main(String[] args) {
-        ArrayList companies = new ArrayList();
-        companies.add("1223234590");
-        companies.add("1223235551");
-        createCompanyFile(companies);
-    }
-*/
     public static void createCompanyFile(ArrayList<String> companies) {
 
         try {
@@ -45,11 +37,7 @@ public class CompanyDOM {
                         Node node = nodes.item(i).getNextSibling().getNextSibling();
                         Node copy = outputDocument.importNode(node, true);
                         rootElement.appendChild(copy);
-                //System.out.println(nodes.item(i).getNextSibling().getNextSibling());
-                        //Element companyElement = (Element) nodes.item(i).getNextSibling().getNextSibling();
-                        //Element nameElement = (Element) companyElement.getElementsByTagName("companyName").item(0);
 
-                        //doc.getFirstChild().appendChild(nodes.item(i).getNextSibling().getNextSibling().cloneNode(true));
                     }
                 }
             }

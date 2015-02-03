@@ -5,6 +5,10 @@
         <point>5</point>
     </course>
     <course>
+        <courseName>Algebra</courseName>
+        <point>2</point>
+    </course>
+    <course>
         <courseName>Java</courseName>
         <point>2</point>
     </course>
